@@ -67,6 +67,38 @@ body {
     align-items: center;
 }
 
+/* NAVIGATION BAR*/
+
+.nav-bar {
+    background-color: var(--grey);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* FOOTER*/
+
+.container-articles-footer {
+    background-color: var(--darkblue);
+    color: var(--lightblue);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
 /* BUTTONS*/
 
 .search-button {
@@ -104,25 +136,6 @@ body {
 
 /*   4.1 HOMEPAGE*/
 /*      4.1.1 HEADER */
-
-/* NAVIGATION BAR */
-
-.nav-bar {
-    background-color: var(--grey);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 60px;
-}
-
-.menu {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
 
 /* HEADER-CONTENT */
 
@@ -165,16 +178,33 @@ body {
     margin: 20px 60px;
 }
 
-/*      4.2.3 FOOTER */
+/*    4.2 RECIPE PAGE*/
 
-.container-articles-footer {
-    background-color: var(--darkblue);
-    color: var(--lightblue);
+.container-articles-recipe-info {
+    border: 2px black solid;
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
+    justify-content: space-evenly;
+}
 
+.container-ingredients-info {
+    border: black 2px solid;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.container-recipe-name {
+    border: black 2px solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.container-nutrients-info {
+    border: black 2px solid;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
 }
