@@ -1,0 +1,39 @@
+@import "https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+}
+
+.logo {
+  font-family: Kaushan Script, cursive;
+}
+
+.outer-container {
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+}
+
+.inner-container {
+  flex-direction: column;
+  flex: 0 1400px;
+  align-items: center;
+  margin: 0 20px;
+  display: flex;
+}
+
+.search-button {
+  background-color: #5f9ea0;
+  border: 2px outset #006400;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=index.a08dd8a9.css.map */

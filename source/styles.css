@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap');
+
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Navigation bar
+        4.2 Recipe Card
+        4.3 Calculator
+        4.4 Footer
+    5. Media Queries
+////////////////////////*/
+
+/* 1. GLOBAL STYLES */
+
+:root {
+    --white: #ffffff;
+    --darkblue: #2a3c50;
+    --grey: #eeeeee;
+    --lightblue: #70b6be;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--white);
+    color: var(--darkblue);
+}
+
+/* 2. TYPOGRAPHY */
+
+.logo {
+    font-family: 'Kaushan Script', cursive;
+    font-weight: bold;
+}
+
+/* 3. LAYOUT */
+
+/*    3.1 REUSABLES */
+
+/* GENERAL OUTER AND INNER CONTAINER */
+
+.outer-container {
+    border: black solid 2px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inner-container {
+    margin: 0 20px;
+    flex-basis: 1400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* BUTTONS*/
+
+.search-button {
+    background-color: var(--lightblue);
+    color: var(--darkblue);
+    font-weight: bold;
+    padding: 5px;
+    border: 1px var(--grey) outset;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* RECIPE CARDS*/
+
+.container-recipe-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.recipe-card {
+    background-color: var(--grey);
+    border: black 2px solid;
+}
+
+.image-recipe-card {
+    width: 100%;
+}
+
+.text-recipe-card {
+    width: 100%;
+}
+
+/* 4 AREAS */
+
+/*   4.1 HOMEPAGE*/
+/*      4.1.1 HEADER */
+
+/* NAVIGATION BAR */
+
+.nav-bar {
+    background-color: var(--grey);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* HEADER-CONTENT */
+
+.header-text {
+    color: var(--white);
+    font-weight: bold;
+    background-image: url("assets/images/hero-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 150px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.second-sentence {
+    font-weight: lighter;
+}
+
+/*    4.1.2 SEARCH PAGE */
+
+/* SEARCH BAR*/
+
+.search-bar {
+    background-color: var(--darkblue);
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* SEARCH RESULTS*/
+
+.search-results {
+    margin: 20px 60px;
+}
+
+/*      4.2.3 FOOTER */
+
+.container-articles-footer {
+    background-color: var(--darkblue);
+    color: var(--lightblue);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+}

@@ -1,0 +1,24 @@
+{
+  "name": "eindopdracht",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel source/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WelmoedJonas/Eindopdracht.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WelmoedJonas/Eindopdracht/issues"
+  },
+  "homepage": "https://github.com/WelmoedJonas/Eindopdracht#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "parcel": "^2.7.0"
+  }
+}
