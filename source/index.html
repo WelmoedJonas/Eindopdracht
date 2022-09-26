@@ -62,7 +62,7 @@
     <section class="outer-container">
         <div class="inner-container">
 
-            <form class="search-bar" id="searchRecipeForm">
+            <form class="search-bar" id="search-recipe-form">
                 <label for="ingredients-field">
                     <input type="text" id="ingredients-field" placeholder="Recipe search" />
                 </label>
@@ -120,11 +120,15 @@
                         <option value="vegan">Vegan</option>
                     </select>
                 </label>
-                <button type="submit" class="search-button">Search</button>
+                <button type="submit" class="search-button" id="button">Search</button>
             </form>
 
+            <ul id="list-with-recipe-cards"></ul>
+            <span id="error-message"></span>
+
             <section class="container-recipe-cards search-results">
-                <article class="recipe-card">
+
+                <article class="recipe-card" id="recipeCard">
                     <img class="image-recipe-card" src="assets/images/example-image.jpg" alt="example-image-pasta"/>
                     <div class="text-recipe-card">
                         <h4>Pasta</h4>
@@ -133,6 +137,7 @@
                         <span><img src="assets/icons/time.png" alt="clock-image"> 20 min.</span>
                     </div>
                 </article>
+
                 <article class="recipe-card">
                     <img class="image-recipe-card" src="assets/images/example-image.jpg" alt="example-image-pasta"/>
                     <div class="text-recipe-card">

@@ -6,34 +6,63 @@
     <script src="/index.5e46f00c.js" defer=""></script>
     <title>The Clueless Cook</title>
 </head>
+
 <body>
+
 <header class="outer-container">
     <div class="inner-container">
-        <nav>
-            <p class="logo">The Clueless Cook</p>
-            <ul>
+        <nav class="nav-bar">
+            <span class="logo">The Clueless Cook</span>
+            <ul class="menu">
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="">About</a></li>
                 <li><a href="/calculator.html">Calculator</a></li>
             </ul>
         </nav>
-        <span>
-            <img src="/hero-image.216d56a7.jpg" alt="picture of pancakes with blueberries">
-        </span>
-        <div>
-            <h2>Delicious Recipes.</h2>
-            <h2>Daily Updated.</h2>
-            <button type="button" class="search-button">Find Recipes</button>
+        <div class="header-text">
+            <div>
+                <h2 class="first-sentence">Delicious Recipes.</h2>
+                <h2 class="second-sentence">Daily Updated.</h2>
+                <button type="button" class="search-button">Find Recipes</button>
+            </div>
         </div>
-        <article id="recipeCardOne"></article>
-        <article id="recipeCardTwo"></article>
-        <article id="recipeCardThree"></article>
+        <section class="container-recipe-cards">
+            <article class="recipe-card">
+                <img class="image-recipe-card" src="/example-image.b0c0c146.jpg" alt="example-image-pasta">
+                <div class="text-recipe-card">
+                <h4>Pasta</h4>
+                <span>300 calories</span>
+                <span>10 ingredients</span>
+                <span><img src="/time.3cac91a4.png" alt="clock-image"> 20 min.</span>
+                </div>
+            </article>
+            <article class="recipe-card">
+                <img class="image-recipe-card" src="/example-image.b0c0c146.jpg" alt="example-image-pasta">
+                <div class="text-recipe-card">
+                    <h4>Pasta</h4>
+                    <span>300 calories</span>
+                    <span>10 ingredients</span>
+                    <span><img src="/time.3cac91a4.png" alt="clock-image"> 20 min.</span>
+                </div>
+            </article>
+            <article class="recipe-card">
+                <img class="image-recipe-card" src="/example-image.b0c0c146.jpg" alt="example-image-pasta">
+                <div class="text-recipe-card">
+                    <h4>Pasta</h4>
+                    <span>300 calories</span>
+                    <span>10 ingredients</span>
+                    <span><img src="/time.3cac91a4.png" alt="clock-image"> 20 min.</span>
+                </div>
+            </article>
+        </section>
     </div>
 </header>
+
 <main>
     <section class="outer-container">
         <div class="inner-container">
-            <form id="searchRecipeForm">
+
+            <form class="search-bar" id="search-recipe-form">
                 <label for="ingredients-field">
                     <input type="text" id="ingredients-field" placeholder="Recipe search">
                 </label>
@@ -91,20 +120,77 @@
                         <option value="vegan">Vegan</option>
                     </select>
                 </label>
-                <button type="submit" class="search-button">Search</button>
+                <button type="submit" class="search-button" id="button">Search</button>
             </form>
-            <div>
-                <article></article>
-                <article></article>
-                <article></article>
-                <article></article>
-                <article></article>
-                <article></article>
-            </div>
+
+            <ul id="list-with-recipe-cards"></ul>
+            <span id="error-message"></span>
+
+            <section class="container-recipe-cards search-results">
+
+                <article class="recipe-card" id="recipeCard">
+                    <img class="image-recipe-card" src="/example-image.b0c0c146.jpg" alt="example-image-pasta">
+                    <div class="text-recipe-card">
+                        <h4>Pasta</h4>
+                        <span>300 calories</span>
+                        <span>10 ingredients</span>
+                        <span><img src="/time.3cac91a4.png" alt="clock-image"> 20 min.</span>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <img class="image-recipe-card" src="/example-image.b0c0c146.jpg" alt="example-image-pasta">
+                    <div class="text-recipe-card">
+                        <h4>Pasta</h4>
+                        <span>300 calories</span>
+                        <span>10 ingredients</span>
+                        <span><img src="/time.3cac91a4.png" alt="clock-image"> 20 min.</span>
+                    </div>
+                </article>
+                <article class="recipe-card">
+                    <img class="image-recipe-card" src="/example-image.b0c0c146.jpg" alt="example-image-pasta">
+                    <div class="text-recipe-card">
+                        <h4>Pasta</h4>
+                        <span>300 calories</span>
+                        <span>10 ingredients</span>
+                        <span><img src="/time.3cac91a4.png" alt="clock-image"> 20 min.</span>
+                    </div>
+                </article>
+                <article class="recipe-card">
+                    <img class="image-recipe-card" src="/example-image.b0c0c146.jpg" alt="example-image-pasta">
+                    <div class="text-recipe-card">
+                        <h4>Pasta</h4>
+                        <span>300 calories</span>
+                        <span>10 ingredients</span>
+                        <span><img src="/time.3cac91a4.png" alt="clock-image"> 20 min.</span>
+                    </div>
+                </article>
+                <article class="recipe-card">
+                    <img class="image-recipe-card" src="/example-image.b0c0c146.jpg" alt="example-image-pasta">
+                    <div class="text-recipe-card">
+                        <h4>Pasta</h4>
+                        <span>300 calories</span>
+                        <span>10 ingredients</span>
+                        <span><img src="/time.3cac91a4.png" alt="clock-image"> 20 min.</span>
+                    </div>
+                </article>
+                <article class="recipe-card">
+                    <img class="image-recipe-card" src="/example-image.b0c0c146.jpg" alt="example-image-pasta">
+                    <div class="text-recipe-card">
+                        <h4>Pasta</h4>
+                        <span>300 calories</span>
+                        <span>10 ingredients</span>
+                        <span><img src="/time.3cac91a4.png" alt="clock-image"> 20 min.</span>
+                    </div>
+                </article>
+            </section>
+
         </div>
     </section>
-    <footer class="outer-container">
-        <div class="inner-container">
+</main>
+<footer class="outer-container">
+    <div class="inner-container">
+        <section class="container-articles-footer">
             <article>
                 <h6>Information</h6>
                 <ul>
@@ -135,14 +221,14 @@
             <article>
                 <h6>Social</h6>
                 <span>
-                    <img src="/facebook.796efe80.png" alt="facebook-icon">
-                    <img src="/instagram.4501520a.png" alt="instagram-icon">
-                    <img src="/linkedin.5e72bf05.png" alt="linkedin-icon">
-                    <img src="/twitter.80628292.png" alt="twitter-icon">
+                    <img src="/facebook.195d963c.png" alt="facebook-icon">
+                    <img src="/instagram.9a88c50d.png" alt="instagram-icon">
+                    <img src="/linkedin.233ff71b.png" alt="linkedin-icon">
+                    <img src="/twitter.efbee297.png" alt="twitter-icon">
                 </span>
             </article>
-        </div>
-    </footer>
-</main>
+        </section>
+    </div>
+</footer>
 </body>
 </html>
