@@ -1,7 +1,7 @@
 import axios from "axios";
 import createRecipeCard from "./createRecipeCard";
 
-export default async function fetchRecipeInfo(ingredients, mealType, cuisineType, diet, health) {
+export default async function fetchRecipeInfo(ingredients) {
 
     // Declare input values for API
     const URI = "https://api.edamam.com"
@@ -17,11 +17,7 @@ export default async function fetchRecipeInfo(ingredients, mealType, cuisineType
                 type: "public",
                 app_id: API_ID,
                 app_key: API_KEY,
-                q: ingredients,
-                mealType: mealType,
-                cuisineType: cuisineType,
-                diet: diet,
-                health: health
+                q: ingredients
             }
         })
 

@@ -538,13 +538,9 @@ var _fetchRecipeInfoDefault = parcelHelpers.interopDefault(_fetchRecipeInfo);
 //Search button
 const submitForm = document.getElementById("search-recipe-form");
 const ingredients = document.getElementById("ingredients-field");
-const mealType = document.getElementById("meal-type-field");
-const cuisineType = document.getElementById("cuisine-field");
-const diet = document.getElementById("diet-field");
-const health = document.getElementById("health-field");
 submitForm.addEventListener("submit", (event)=>{
     event.preventDefault();
-    (0, _fetchRecipeInfoDefault.default)(ingredients.value, mealType.value, cuisineType.value, diet.value, health.value);
+    (0, _fetchRecipeInfoDefault.default)(ingredients.value);
 });
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/fetchRecipeInfo":"gSmVO"}],"gkKU3":[function(require,module,exports) {
@@ -584,7 +580,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _createRecipeCard = require("./createRecipeCard");
 var _createRecipeCardDefault = parcelHelpers.interopDefault(_createRecipeCard);
-async function fetchRecipeInfo(ingredients, mealType, cuisineType, diet, health) {
+async function fetchRecipeInfo(ingredients) {
     // Declare input values for API
     const URI = "https://api.edamam.com";
     const ENDPOINT = "/api/recipes/v2";
@@ -597,11 +593,7 @@ async function fetchRecipeInfo(ingredients, mealType, cuisineType, diet, health)
                 type: "public",
                 app_id: API_ID,
                 app_key: API_KEY,
-                q: ingredients,
-                mealType: mealType,
-                cuisineType: cuisineType,
-                diet: diet,
-                health: health
+                q: ingredients
             }
         });
         const arrayOfRecipes = response.data.hits;
@@ -3974,11 +3966,19 @@ var utils = require("./../utils");
 },{"./../utils":"5By4s"}],"6zycB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-function createRecipeCard(array) {
+function createRecipeCard(arrayOfRecipes) {
     const recipeList = document.getElementById("list-with-recipe-cards");
-    array.map((item)=>{
+    arrayOfRecipes.map((item)=>{
         recipeList.innerHTML += `
-            <li>${item.recipe.label}</li>`;
+        <article class="recipe-card" id="recipeCard">
+                    <img class="image-recipe-card" src="${item.recipe.image}" alt="image-dish" />
+                    <div class="text-recipe-card">
+                        <h4>${item.recipe.label}</h4>
+                        <span>${item.recipe.calories} calories</span>
+                        <span>${item.recipe.ingredients.lenght} ingredients</span>
+                        <span><img src="${assets / icons / time.png}" alt="clock-image" ${item.recipe.totalTime}></span>
+                    </div>
+                </article>`;
     });
 }
 exports.default = createRecipeCard;

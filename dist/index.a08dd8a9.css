@@ -120,10 +120,6 @@ body {
   display: flex;
 }
 
-.search-results {
-  margin: 20px 60px;
-}
-
 .container-articles-recipe-info {
   width: 100%;
   border: 2px solid #000;
