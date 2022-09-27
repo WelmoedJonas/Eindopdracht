@@ -1,7 +1,7 @@
 import axios from "axios";
 import createRecipeCard from "./createRecipeCard";
 
-export default async function fetchRecipeInfo(ingredients) {
+export default async function fetchRecipeInfo(queryText) {
 
     // Declare input values for API
     const URI = "https://api.edamam.com"
@@ -17,7 +17,7 @@ export default async function fetchRecipeInfo(ingredients) {
                 type: "public",
                 app_id: API_ID,
                 app_key: API_KEY,
-                q: ingredients
+                q: queryText
             }
         })
 
@@ -27,7 +27,7 @@ export default async function fetchRecipeInfo(ingredients) {
         createRecipeCard(arrayOfRecipes)
 
 
-        //Catch error message and show them in the UI
+        // Catch error message and show them in the UI
     } catch (e) {
 
         const error = document.getElementById("error-message")
