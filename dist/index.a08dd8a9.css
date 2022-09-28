@@ -109,6 +109,10 @@ body {
   font-weight: lighter;
 }
 
+.list-with-recipes {
+  margin: 25px 0;
+}
+
 .search-bar {
   background-color: var(--darkblue);
   width: 100%;

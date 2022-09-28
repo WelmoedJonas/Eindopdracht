@@ -157,6 +157,10 @@ body {
     font-weight: lighter;
 }
 
+.list-with-recipes {
+    margin: 25px 0px;
+}
+
 /*    4.1.2 SEARCH PAGE */
 
 /* SEARCH BAR*/
