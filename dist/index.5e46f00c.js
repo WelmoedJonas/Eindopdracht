@@ -538,9 +538,12 @@ var _fetchRecipeInfoDefault = parcelHelpers.interopDefault(_fetchRecipeInfo);
 const submitForm = document.getElementById("search-recipe-form");
 const queryText = document.getElementById("ingredients-field");
 const mealType = document.getElementById("meal-type-field");
+const cuisineType = document.getElementById("cuisine-field");
+const dietType = document.getElementById("diet-field");
+const healthType = document.getElementById("health-field");
 submitForm.addEventListener("submit", (event)=>{
     event.preventDefault();
-    (0, _fetchRecipeInfoDefault.default)(queryText.value, mealType.value);
+    (0, _fetchRecipeInfoDefault.default)(queryText.value, mealType.value, cuisineType.value, dietType.value, healthType.value);
 });
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/fetchRecipeInfo":"gSmVO"}],"gkKU3":[function(require,module,exports) {
@@ -580,7 +583,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _createRecipeCard = require("./createRecipeCard");
 var _createRecipeCardDefault = parcelHelpers.interopDefault(_createRecipeCard);
-async function fetchRecipeInfo(queryText, mealType) {
+async function fetchRecipeInfo(queryText, mealType, cuisineType, dietType, healthType) {
     // Declare input values for API
     const URI = "https://api.edamam.com";
     const ENDPOINT = "/api/recipes/v2";
@@ -594,7 +597,10 @@ async function fetchRecipeInfo(queryText, mealType) {
                 app_id: API_ID,
                 app_key: API_KEY,
                 q: queryText,
-                mealType: mealType
+                mealType: mealType,
+                cuisineType: cuisineType,
+                diet: dietType,
+                health: healthType
             }
         });
         const arrayOfRecipes = response.data.hits;
@@ -3969,6 +3975,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function createRecipeCard(arr) {
     const recipeList = document.getElementById("list-with-recipe-cards");
+    recipeList.innerHTML = "";
     arr.map((item)=>{
         const roundedCalories = Math.round(item.recipe.calories);
         recipeList.innerHTML += ` 
