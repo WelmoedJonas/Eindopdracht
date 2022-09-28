@@ -537,9 +537,10 @@ var _fetchRecipeInfo = require("./functions/fetchRecipeInfo");
 var _fetchRecipeInfoDefault = parcelHelpers.interopDefault(_fetchRecipeInfo);
 const submitForm = document.getElementById("search-recipe-form");
 const queryText = document.getElementById("ingredients-field");
+const mealType = document.getElementById("meal-type-field");
 submitForm.addEventListener("submit", (event)=>{
     event.preventDefault();
-    (0, _fetchRecipeInfoDefault.default)(queryText.value);
+    (0, _fetchRecipeInfoDefault.default)(queryText.value, mealType.value);
 });
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/fetchRecipeInfo":"gSmVO"}],"gkKU3":[function(require,module,exports) {
@@ -579,7 +580,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _createRecipeCard = require("./createRecipeCard");
 var _createRecipeCardDefault = parcelHelpers.interopDefault(_createRecipeCard);
-async function fetchRecipeInfo(queryText) {
+async function fetchRecipeInfo(queryText, mealType) {
     // Declare input values for API
     const URI = "https://api.edamam.com";
     const ENDPOINT = "/api/recipes/v2";
@@ -592,7 +593,8 @@ async function fetchRecipeInfo(queryText) {
                 type: "public",
                 app_id: API_ID,
                 app_key: API_KEY,
-                q: queryText
+                q: queryText,
+                mealType: mealType
             }
         });
         const arrayOfRecipes = response.data.hits;
@@ -3968,31 +3970,20 @@ parcelHelpers.defineInteropFlag(exports);
 function createRecipeCard(arr) {
     const recipeList = document.getElementById("list-with-recipe-cards");
     arr.map((item)=>{
+        const roundedCalories = Math.round(item.recipe.calories);
         recipeList.innerHTML += ` 
-        <li>
-        <article className="recipe-card id=recipeCard">
-            <img className="image-recipe-card" src="${item.recipe.image}" alt="image-of-dish" />
+
+        <article class="recipe-card id=recipeCard">
+            <img class="image-recipe-card" src="${item.recipe.image}" alt="image-of-dish" />
             <div>
                 <h4>${item.recipe.label}</h4>
-                <span>${item.recipe.calories} calories | </span>
+                <span>${roundedCalories} calories | </span>
                 <span>${item.recipe.ingredients.length} ingredients | </span>
                 <span>${item.recipe.totalTime} min. </span>
             </div>
-</article>
-</li> 
-`;
+        </article> `;
     });
-} // <li>
- //     <article className="recipe-card" id="recipeCard">
- //         <img className="image-recipe-card" src="${item.recipe.image}" alt="image-dish"/>
- //         <div className="text-recipe-card">
- //             <h4>${item.recipe.label}</h4>
- //             <span>${item.recipe.calories} calories</span>
- //             <span>${item.recipe.ingredients.lenght} ingredients</span>
- //             <span> <img src="${assets/icons/time.png}" alt="clock-image"/> ${item.recipe.totalTime}></span>
- //         </div>
- //     </article>
- // </li>
+}
 exports.default = createRecipeCard;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cSF8J","3Pk9d"], "3Pk9d", "parcelRequire19ff")

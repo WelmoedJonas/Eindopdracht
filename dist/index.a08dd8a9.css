@@ -120,8 +120,15 @@ body {
   display: flex;
 }
 
+.search-results {
+  margin: 25px 0;
+}
+
 .list-with-recipes {
+  flex-flow: wrap;
+  gap: 25px;
   list-style: none;
+  display: flex;
 }
 
 .container-articles-recipe-info {

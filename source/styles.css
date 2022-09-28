@@ -174,13 +174,20 @@ body {
 
 /* SEARCH RESULTS*/
 
+.search-results {
+    margin: 25px 0px;
+
+}
+
 .list-with-recipes {
     list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
-.search-results {
 
-}
 
 /*    4.2 RECIPE PAGE*/
 
