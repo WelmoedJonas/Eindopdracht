@@ -3981,7 +3981,7 @@ parcelHelpers.defineInteropFlag(exports);
 function createRecipeCard(arr) {
     const recipeList = document.getElementById("list-with-recipe-cards");
     recipeList.innerHTML = "";
-    arr.map((item)=>{
+    arr.slice(0, 12).map((item)=>{
         const roundedCalories = Math.round(item.recipe.calories);
         recipeList.innerHTML += ` 
 
