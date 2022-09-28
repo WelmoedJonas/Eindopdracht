@@ -175,8 +175,19 @@ body {
 /* SEARCH RESULTS*/
 
 .search-results {
-    margin: 20px 60px;
+    margin: 25px 0px;
+
 }
+
+.list-with-recipes {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+
 
 /*    4.2 RECIPE PAGE*/
 
