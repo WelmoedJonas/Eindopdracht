@@ -535,6 +535,11 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _fetchRecipeInfo = require("./functions/fetchRecipeInfo");
 var _fetchRecipeInfoDefault = parcelHelpers.interopDefault(_fetchRecipeInfo);
+var _fetchRecipeInfoHeader = require("./functions/fetchRecipeInfoHeader");
+var _fetchRecipeInfoHeaderDefault = parcelHelpers.interopDefault(_fetchRecipeInfoHeader);
+// Random recipes header homepage
+(0, _fetchRecipeInfoHeaderDefault.default)("falafel");
+// Search form homepage
 const submitForm = document.getElementById("search-recipe-form");
 const queryText = document.getElementById("ingredients-field");
 const mealType = document.getElementById("meal-type-field");
@@ -546,7 +551,7 @@ submitForm.addEventListener("submit", (event)=>{
     (0, _fetchRecipeInfoDefault.default)(queryText.value, mealType.value, cuisineType.value, dietType.value, healthType.value);
 });
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/fetchRecipeInfo":"gSmVO"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./functions/fetchRecipeInfo":"gSmVO","./functions/fetchRecipeInfoHeader":"lBubV"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -3992,6 +3997,65 @@ function createRecipeCard(arr) {
     });
 }
 exports.default = createRecipeCard;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lBubV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _createRecipeCardHeader = require("./createRecipeCardHeader");
+var _createRecipeCardHeaderDefault = parcelHelpers.interopDefault(_createRecipeCardHeader);
+async function fetchRecipeInfoHeader(ingredient) {
+    // Declare input values for API
+    const URI = "https://api.edamam.com";
+    const ENDPOINT = "/api/recipes/v2";
+    const API_ID = "6a749d22";
+    const API_KEY = "06e02ce0a6a04ae4b1df4bd0bc65c785";
+    //Fetch data from API
+    try {
+        const response = await (0, _axiosDefault.default).get(URI + ENDPOINT, {
+            params: {
+                type: "public",
+                app_id: API_ID,
+                app_key: API_KEY,
+                q: ingredient,
+                random: true
+            }
+        });
+        const arrayOfRecipes = response.data.hits;
+        arrayOfRecipes.slice(0, 2);
+        (0, _createRecipeCardHeaderDefault.default)(arrayOfRecipes);
+    // Catch error message and show them in the UI
+    } catch (e) {
+        const error = document.getElementById("error-message");
+        if (e.response.status === 404) error.textContent = "page not found";
+        else if (e.response.status === 500) error.textContent = "internal server error";
+    }
+}
+exports.default = fetchRecipeInfoHeader;
+
+},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./createRecipeCardHeader":"4DTJx"}],"4DTJx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function createRecipeCardHeader(arr) {
+    const recipesHeader = document.getElementById("list-with-random-recipes");
+    recipesHeader.innerHTML = "";
+    arr.slice(0, 3).map((item)=>{
+        const roundedCalories = Math.round(item.recipe.calories);
+        recipesHeader.innerHTML += ` 
+
+        <article class="recipe-card id=recipeCard">
+            <img class="image-recipe-card" src="${item.recipe.image}" alt="image-of-dish" />
+            <div>
+                <h4>${item.recipe.label}</h4>
+                <span>${roundedCalories} calories | </span>
+                <span>${item.recipe.ingredients.length} ingredients | </span>
+                <span>${item.recipe.totalTime} min. </span>
+            </div>
+        </article> `;
+    });
+}
+exports.default = createRecipeCardHeader;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cSF8J","3Pk9d"], "3Pk9d", "parcelRequire19ff")
 
