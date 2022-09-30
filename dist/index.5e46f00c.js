@@ -537,9 +537,9 @@ var _fetchRecipeInfo = require("./functions/fetchRecipeInfo");
 var _fetchRecipeInfoDefault = parcelHelpers.interopDefault(_fetchRecipeInfo);
 var _fetchRecipeInfoHeader = require("./functions/fetchRecipeInfoHeader");
 var _fetchRecipeInfoHeaderDefault = parcelHelpers.interopDefault(_fetchRecipeInfoHeader);
-// Random recipes header homepage
+// Function to create three recipe cards with random recipes to show in the header
 (0, _fetchRecipeInfoHeaderDefault.default)("falafel");
-// Search form homepage
+// Form to search for recipes
 const submitForm = document.getElementById("search-recipe-form");
 const queryText = document.getElementById("ingredients-field");
 const mealType = document.getElementById("meal-type-field");
@@ -602,10 +602,10 @@ async function fetchRecipeInfo(queryText, mealType, cuisineType, dietType, healt
                 app_id: API_ID,
                 app_key: API_KEY,
                 q: queryText,
-                mealType: mealType,
-                cuisineType: cuisineType,
-                diet: dietType,
-                health: healthType
+                mealType: mealType ? mealType : null,
+                cuisineType: cuisineType ? cuisineType : null,
+                diet: dietType ? dietType : null,
+                health: healthType ? healthType : null
             }
         });
         const arrayOfRecipes = response.data.hits;
