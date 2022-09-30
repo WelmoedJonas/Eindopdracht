@@ -1,6 +1,7 @@
 import fetchRecipeInfo from "./functions/fetchRecipeInfo";
 import fetchRecipeInfoHeader from "./functions/fetchRecipeInfoHeader"
 
+
 // Random recipes header homepage
 
 fetchRecipeInfoHeader("falafel")

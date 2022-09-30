@@ -18,10 +18,10 @@ export default async function fetchRecipeInfo(queryText, mealType, cuisineType, 
                 app_id: API_ID,
                 app_key: API_KEY,
                 q: queryText,
-                mealType: mealType,
-                cuisineType: cuisineType,
-                diet: dietType,
-                health: healthType
+                mealType: mealType ? mealType : null,
+                cuisineType: cuisineType ? cuisineType : null,
+                diet: dietType ? dietType : null,
+                health: healthType ? healthType : null
             }
         })
 

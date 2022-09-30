@@ -602,10 +602,10 @@ async function fetchRecipeInfo(queryText, mealType, cuisineType, dietType, healt
                 app_id: API_ID,
                 app_key: API_KEY,
                 q: queryText,
-                mealType: mealType,
-                cuisineType: cuisineType,
-                diet: dietType,
-                health: healthType
+                mealType: mealType ? mealType : null,
+                cuisineType: cuisineType ? cuisineType : null,
+                diet: dietType ? dietType : null,
+                health: healthType ? healthType : null
             }
         });
         const arrayOfRecipes = response.data.hits;
@@ -3982,10 +3982,13 @@ function createRecipeCard(arr) {
     const recipeList = document.getElementById("list-with-recipe-cards");
     recipeList.innerHTML = "";
     arr.slice(0, 12).map((item)=>{
+        const recipeUri = item.recipe.uri;
+        const recipeId = recipeUri.split("_")[1];
         const roundedCalories = Math.round(item.recipe.calories);
         recipeList.innerHTML += ` 
 
         <article class="recipe-card id=recipeCard">
+            <a href="pages/recipe-page.html?id=${recipeId}">
             <img class="image-recipe-card" src="${item.recipe.image}" alt="image-of-dish" />
             <div>
                 <h4>${item.recipe.label}</h4>
@@ -3993,7 +3996,8 @@ function createRecipeCard(arr) {
                 <span>${item.recipe.ingredients.length} ingredients | </span>
                 <span>${item.recipe.totalTime} min. </span>
             </div>
-        </article> `;
+            </a>
+        </article>`;
     });
 }
 exports.default = createRecipeCard;
