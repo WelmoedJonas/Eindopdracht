@@ -1,7 +1,12 @@
 import fetchRecipeInfo from "./functions/fetchRecipeInfo";
 import fetchRecipeInfoHeader from "./functions/fetchRecipeInfoHeader"
 
+
+
+// Random recipes header homepage
+
 // Function to create three recipe cards with random recipes to show in the header
+
 
 fetchRecipeInfoHeader("falafel")
 
