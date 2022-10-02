@@ -4,15 +4,20 @@ const submit = document.getElementById("calculator-form")
 
 // Adding an event listener on the form, so when enter of the button are pushed/clicked the function wil be invoked
 
-submit.addEventListener("submit", showText)
+submit.addEventListener("submit", (ev) => {
+    ev.preventDefault()
+    showText()
+} )
 
 // Declare function that wil run if enter/search are clicked on
 
-function showText() {
+export default function showText() {
     const text = document.getElementById("text-by-image")
     text.textContent = "Don't worry, you're beautiful!"
     const image = document.getElementById("queen-image")
     image.innerHTML = `
-    <img src="assets/images/Queen.jpg" alt="image-of-fat-person-with-tattoo-queen"/>`
+    <img class="queen" src="https://images.squarespace-cdn.com/content/v1/58b18b4ee4fcb52215771e81/1533197622055-9H7ZTXHHE5ZGR6S1QW86/Queen+%28s%29.jpg?format=1000w" alt="image-of-fat-person-with-queen-tattoo"/>`
 }
+
+
 

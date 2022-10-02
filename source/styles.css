@@ -35,6 +35,15 @@ body {
     color: var(--darkblue);
 }
 
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+    text-decoration: none;
+}
+
 /* 2. TYPOGRAPHY */
 
 .logo {
@@ -188,8 +197,6 @@ body {
     gap: 25px;
 }
 
-
-
 /*    4.2 RECIPE PAGE*/
 
 .container-articles-recipe-info {
@@ -215,4 +222,10 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
+}
+
+/*    4.3 CALCULATOR PAGE*/
+
+.queen {
+    max-width: 400px;
 }

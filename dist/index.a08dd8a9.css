@@ -18,6 +18,15 @@ body {
   font-family: Poppins, sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
 .logo {
   font-family: Kaushan Script, cursive;
   font-weight: bold;
@@ -156,6 +165,10 @@ body {
   flex-direction: column;
   padding: 10px 20px;
   display: flex;
+}
+
+.queen {
+  max-width: 400px;
 }
 
 /*# sourceMappingURL=index.a08dd8a9.css.map */
