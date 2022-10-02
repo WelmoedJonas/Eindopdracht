@@ -1,6 +1,7 @@
 import axios from "axios";
 import createRecipeCardHeader from "./createRecipeCardHeader";
 
+// Declare function to create three recipe cards with random recipes to show in the header
 
 export default async function fetchRecipeInfoHeader(ingredient) {
 
@@ -23,8 +24,16 @@ export default async function fetchRecipeInfoHeader(ingredient) {
             }
         })
 
+        // Variable to hold the array of needed data
+
         const arrayOfRecipes = response.data.hits
+
+        // Cutting the array of so only three recipes will show in the header
+
         arrayOfRecipes.slice(0, 2)
+
+        // Invoke function to create a recipe card for the header
+
         createRecipeCardHeader(arrayOfRecipes)
 
         // Catch error message and show them in the UI

@@ -1,6 +1,13 @@
+// Declare function to create a recipe card
+
 export default function createRecipeCard(arr) {
 
+    // Variable to link to the list in which the recipe card must be injected
+
     const recipeList = document.getElementById("list-with-recipe-cards")
+
+    // Injecting the recipe cards with the right information in HTML
+
     recipeList.innerHTML = ""
 
     arr.slice(0, 12).map((item) => {

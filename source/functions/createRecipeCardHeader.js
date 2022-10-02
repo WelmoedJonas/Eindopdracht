@@ -1,6 +1,13 @@
+// declare function to create recipe card for the header
+
 export default function createRecipeCardHeader(arr) {
 
+    // Variable to link to the list in which the recipe card must be injected
+
     const recipesHeader = document.getElementById("list-with-random-recipes")
+
+    // Injecting the recipe cards with the right information in HTML
+
     recipesHeader.innerHTML = ""
     arr.slice(0, 3).map((item) => {
 

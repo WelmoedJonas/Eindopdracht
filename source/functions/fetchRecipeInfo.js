@@ -1,6 +1,8 @@
 import axios from "axios";
 import createRecipeCard from "./createRecipeCard";
 
+// Declare function to fetch data from the Edamam API
+
 export default async function fetchRecipeInfo(queryText, mealType, cuisineType, dietType, healthType) {
 
     // Declare input values for API
@@ -21,17 +23,22 @@ export default async function fetchRecipeInfo(queryText, mealType, cuisineType, 
                 mealType: mealType ? mealType : null,
                 cuisineType: cuisineType ? cuisineType : null,
                 diet: dietType ? dietType : null,
-                health: healthType ? healthType : null
+                health: healthType ? healthType : null,
+                random: true
             }
         })
 
+        // Create variable to hold the needed data fetched from the API
+
         const arrayOfRecipes = response.data.hits
-        console.log(arrayOfRecipes)
+
+        // Invoke function to create a recipe card
 
         createRecipeCard(arrayOfRecipes)
 
 
         // Catch error message and show them in the UI
+
     } catch (e) {
 
         const error = document.getElementById("error-message")

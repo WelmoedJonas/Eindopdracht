@@ -142,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"8dEQL":[function(require,module,exports) {
+})({"4okDk":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "e29b86734616d02f";
+module.bundle.HMR_BUNDLE_ID = "4d007a905b7784f6";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
@@ -531,102 +531,11 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"cbL5n":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _fetchSpecificRecipeInfo = require("../functions/fetchSpecificRecipeInfo");
-var _fetchSpecificRecipeInfoDefault = parcelHelpers.interopDefault(_fetchSpecificRecipeInfo);
-document.addEventListener("DOMContentLoaded", (event)=>{
-    event.preventDefault();
-    const parameters = new URLSearchParams(window.location.search);
-    const id = parameters.get("id");
-    // Invoke function to fetch the specific info of recipes
-    (0, _fetchSpecificRecipeInfoDefault.default)(id);
-});
-
-},{"../functions/fetchSpecificRecipeInfo":"f5Lvc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f5Lvc":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-async function fetchSpecificRecipeInfo(id) {
-    // Declare input values for API
-    const URI = "https://api.edamam.com";
-    const ENDPOINT = "/api/recipes/v2/";
-    const API_ID = "6a749d22";
-    const API_KEY = "06e02ce0a6a04ae4b1df4bd0bc65c785";
-    // Fetch data from API
-    try {
-        const response = await (0, _axiosDefault.default).get(URI + ENDPOINT + id, {
-            params: {
-                type: "public",
-                app_id: API_ID,
-                app_key: API_KEY,
-                id: id
-            }
-        });
-        // Variable that holds the needed data
-        const recipeInfo = response.data.recipe;
-        // Variable that links to the list of ingredients in HTML
-        const ingredientsList = document.getElementById("ingredients");
-        //Injecting the needed data in the holded place in HTML
-        ingredientsList.innerHTML = `
-                            <div class="container-recipe-name">
-                        <h2>${recipeInfo.label}   |</h2>
-                        <div>${recipeInfo.totalTime} min.</div>
-                    </div>
-                    <div>
-                        <h4>Ingredients</h4>
-                        <ul>${recipeInfo.ingredientLines}</ul>
-                    </div>`;
-        //Variable that links to placeholder for the nutrients info in HTML
-        const nutrientsList = document.getElementById("nutrients");
-        //Injecting the needed date in the holded place in HTML
-        nutrientsList.innerHTML = `
-        <img class="image-dish" src="${recipeInfo.image}" alt="image-of-dish"/>
-        <h4>Nutrients</h4>
-            <table>
-            <tbody>
-            <tr>
-            <td>Energy</td>
-            <td>${Math.round(recipeInfo.totalNutrients.ENERC_KCAL.quantity)}</td>
-            <td>kcal</td>
-            </tr>
-            <tr>
-            <td>Fat</td>
-            <td>${Math.round(recipeInfo.totalNutrients.FAT.quantity)}</td>
-            <td>g</td>
-            </tr>
-            <tr>
-            <td>Carbs</td>
-            <td>${Math.round(recipeInfo.totalNutrients.CHOCDF.quantity)}</td>
-            <td>g</td>
-            </tr>
-            <tr>
-            <td>Sugar</td>
-            <td>${Math.round(recipeInfo.totalNutrients.SUGAR.quantity)}</td>
-            <td>g</td>
-            </tr>
-            <tr>
-            <td>Protein</td>
-            <td>${Math.round(recipeInfo.totalNutrients.PROCNT.quantity)}</td>
-            <td>g</td>
-            </tr>
-            <tr>
-            <td>Sodium</td>
-            <td>${Math.round(recipeInfo.totalNutrients.NA.quantity)}</td>
-            <td>mg</td>
-            </tr>
-            </tbody>
-            </table>`;
-    // Catch error message and show them in the UI
-    } catch (e) {
-        const error = document.getElementById("error-message");
-        if (e.response.status === 404) error.textContent = "page not found";
-        else if (e.response.status === 500) error.textContent = "internal server error";
-    }
+},{}],"ajZo3":[function(require,module,exports) {
+function showImage() {
+    document.getElementById("text-by-image").innerHTML = `Don't worry, you're beautiful`;
 }
-exports.default = fetchSpecificRecipeInfo;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","axios":"jo6P5"}]},["8dEQL","cbL5n"], "cbL5n", "parcelRequire19ff")
+},{}]},["4okDk","ajZo3"], "ajZo3", "parcelRequire19ff")
 
-//# sourceMappingURL=recipe-page.4616d02f.js.map
+//# sourceMappingURL=calculator.5b7784f6.js.map

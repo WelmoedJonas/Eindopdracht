@@ -1,5 +1,7 @@
 import axios from "axios"
 
+// Declare function to fetch the data needed for the specific recipe information
+
 export default async function fetchSpecificRecipeInfo(id) {
 
     // Declare input values for API
@@ -10,7 +12,7 @@ export default async function fetchSpecificRecipeInfo(id) {
 
     // Fetch data from API
     try {
-        const response = await axios.get (URI + ENDPOINT + id, {
+        const response = await axios.get(URI + ENDPOINT + id, {
             params: {
                 type: "public",
                 app_id: API_ID,
@@ -19,11 +21,17 @@ export default async function fetchSpecificRecipeInfo(id) {
             }
         })
 
+        // Variable that holds the needed data
+
         const recipeInfo = response.data.recipe
-        console.log(recipeInfo)
+
+        // Variable that links to the list of ingredients in HTML
 
         const ingredientsList = document.getElementById("ingredients")
-        ingredientsList.innerHTML =`
+
+        //Injecting the needed data in the holded place in HTML
+
+        ingredientsList.innerHTML = `
                             <div class="container-recipe-name">
                         <h2>${recipeInfo.label}   |</h2>
                         <div>${recipeInfo.totalTime} min.</div>
@@ -33,7 +41,12 @@ export default async function fetchSpecificRecipeInfo(id) {
                         <ul>${recipeInfo.ingredientLines}</ul>
                     </div>`
 
+        //Variable that links to placeholder for the nutrients info in HTML
+
         const nutrientsList = document.getElementById("nutrients")
+
+        //Injecting the needed date in the holded place in HTML
+
         nutrientsList.innerHTML = `
         <img class="image-dish" src="${recipeInfo.image}" alt="image-of-dish"/>
         <h4>Nutrients</h4>
@@ -51,7 +64,7 @@ export default async function fetchSpecificRecipeInfo(id) {
             </tr>
             <tr>
             <td>Carbs</td>
-            <td>${Math.round(recipeInfo.totalNutrients. CHOCDF.quantity)}</td>
+            <td>${Math.round(recipeInfo.totalNutrients.CHOCDF.quantity)}</td>
             <td>g</td>
             </tr>
             <tr>
@@ -71,6 +84,8 @@ export default async function fetchSpecificRecipeInfo(id) {
             </tr>
             </tbody>
             </table>`
+
+        // Catch error message and show them in the UI
 
     } catch (e) {
 

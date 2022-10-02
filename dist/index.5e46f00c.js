@@ -537,15 +537,17 @@ var _fetchRecipeInfo = require("./functions/fetchRecipeInfo");
 var _fetchRecipeInfoDefault = parcelHelpers.interopDefault(_fetchRecipeInfo);
 var _fetchRecipeInfoHeader = require("./functions/fetchRecipeInfoHeader");
 var _fetchRecipeInfoHeaderDefault = parcelHelpers.interopDefault(_fetchRecipeInfoHeader);
-// Function to create three recipe cards with random recipes to show in the header
+// Invoke function to create three recipe cards with random recipes to show in the header
 (0, _fetchRecipeInfoHeaderDefault.default)("falafel");
-// Form to search for recipes
+// Variable that links to the recipe search form in HTML
 const submitForm = document.getElementById("search-recipe-form");
+// Variables that link to the search options of the search form in HTML
 const queryText = document.getElementById("ingredients-field");
 const mealType = document.getElementById("meal-type-field");
 const cuisineType = document.getElementById("cuisine-field");
 const dietType = document.getElementById("diet-field");
 const healthType = document.getElementById("health-field");
+// Invoke function to fetch data from the Edamam API which will run after user clicked enter or the search button
 submitForm.addEventListener("submit", (event)=>{
     event.preventDefault();
     (0, _fetchRecipeInfoDefault.default)(queryText.value, mealType.value, cuisineType.value, dietType.value, healthType.value);
@@ -605,11 +607,13 @@ async function fetchRecipeInfo(queryText, mealType, cuisineType, dietType, healt
                 mealType: mealType ? mealType : null,
                 cuisineType: cuisineType ? cuisineType : null,
                 diet: dietType ? dietType : null,
-                health: healthType ? healthType : null
+                health: healthType ? healthType : null,
+                random: true
             }
         });
+        // Create variable to hold the needed data fetched from the API
         const arrayOfRecipes = response.data.hits;
-        console.log(arrayOfRecipes);
+        // Invoke function to create a recipe card
         (0, _createRecipeCardDefault.default)(arrayOfRecipes);
     // Catch error message and show them in the UI
     } catch (e) {
@@ -3979,7 +3983,9 @@ var utils = require("./../utils");
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function createRecipeCard(arr) {
+    // Variable to link to the list in which the recipe card must be injected
     const recipeList = document.getElementById("list-with-recipe-cards");
+    // Injecting the recipe cards with the right information in HTML
     recipeList.innerHTML = "";
     arr.slice(0, 12).map((item)=>{
         const recipeUri = item.recipe.uri;
@@ -4026,8 +4032,11 @@ async function fetchRecipeInfoHeader(ingredient) {
                 random: true
             }
         });
+        // Variable to hold the array of needed data
         const arrayOfRecipes = response.data.hits;
+        // Cutting the array of so only three recipes will show in the header
         arrayOfRecipes.slice(0, 2);
+        // Invoke function to create a recipe card for the header
         (0, _createRecipeCardHeaderDefault.default)(arrayOfRecipes);
     // Catch error message and show them in the UI
     } catch (e) {
@@ -4042,7 +4051,9 @@ exports.default = fetchRecipeInfoHeader;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function createRecipeCardHeader(arr) {
+    // Variable to link to the list in which the recipe card must be injected
     const recipesHeader = document.getElementById("list-with-random-recipes");
+    // Injecting the recipe cards with the right information in HTML
     recipesHeader.innerHTML = "";
     arr.slice(0, 3).map((item)=>{
         const roundedCalories = Math.round(item.recipe.calories);

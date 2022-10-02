@@ -25,7 +25,6 @@ body {
 
 .outer-container {
   width: 100%;
-  border: 2px solid #000;
   flex-direction: row;
   justify-content: center;
   display: flex;
@@ -85,7 +84,6 @@ body {
 
 .recipe-card {
   background-color: var(--grey);
-  border: 2px solid #000;
 }
 
 .image-recipe-card, .text-recipe-card {
@@ -137,14 +135,12 @@ body {
 
 .container-articles-recipe-info {
   width: 100%;
-  border: 2px solid #000;
   flex-direction: row;
   justify-content: space-evenly;
   display: flex;
 }
 
 .container-ingredients-info {
-  border: 2px solid #000;
   flex-direction: column;
   justify-content: flex-start;
   padding: 10px 20px;
@@ -152,13 +148,11 @@ body {
 }
 
 .container-recipe-name {
-  border: 2px solid #000;
   flex-direction: row;
   display: flex;
 }
 
 .container-nutrients-info {
-  border: 2px solid #000;
   flex-direction: column;
   padding: 10px 20px;
   display: flex;
